@@ -29,13 +29,13 @@ export function execute(...operations) {
 }
 
 /**
- * Create an event
+ * Create a payment
  * @example
  * execute(
  *   createPayment(data)
  * )(state)
  * @constructor
- * @param {object} eventData - Payload data for the event
+ * @param {object} data - Payload data for the payment
  * @returns {Operation}
  */
 export function createPayment(data) {
