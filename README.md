@@ -11,10 +11,17 @@ Documentation
 #### `createPayment(...)`
 ```js
 createPayment(fields(
-  field("dataSet", "pBOMPrpg1QX"),
-  field("orgUnit", "DiszpKrYNg8"),
-  field("period", "201401"),
-  field("completeData", dataValue("date"))
+  field("phonenumber", "+256773712831"),
+  field("first_name", "+256773712831"),
+  field("last_name", "+256773712831"),
+  field("amount", 100.2),
+  field("currency", "UGX"),
+  field("account", 1),
+  field("description", "+256773712831"),
+  field("payment_type", "+256773712831"),
+  field("callback_url", "+256773712831"),
+  field("metadata.id", 1234),
+  field("metadata.name", "Lucy")
 ))
 ```
 
