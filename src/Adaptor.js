@@ -60,6 +60,38 @@ export function createPayment(data) {
   }
 }
 
+/**
+ * Create a contact
+ * @example
+ * execute(
+ *   createContact(data)
+ * )(state)
+ * @constructor
+ * @param {object} data - Payload data for the contact
+ * @returns {Operation}
+ */
+export function createContact(data) {
+
+  return state => {
+    const body = expandReferences(data)(state);
+
+    const { apiUrl, apiToken } = state.configuration;
+
+    const url = resolveUrl(apiUrl + "/contacts")
+
+    console.log("Posting contact:");
+    console.log(body)
+
+    return post({ apiToken, body, url })
+    .then((result) => {
+      console.log("Success:", result);
+      return { ...state, references: [ result, ...state.references ] }
+    })
+
+  }
+}
+
+
 export {
   field, fields, sourceValue,
   merge, dataPath, dataValue, lastReferenceValue
