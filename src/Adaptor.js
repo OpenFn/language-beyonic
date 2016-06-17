@@ -43,14 +43,15 @@ export function createPayment(data) {
   return state => {
     const body = expandReferences(data)(state);
 
-    const { username, password, apiUrl } = state.configuration;
+    const { apiUrl, apiToken } = state.configuration;
 
-    const url = resolveUrl(apiUrl + '/payments')
+    const url = "https://app.beyonic.com/api"
+    // const url = resolveUrl(apiUrl + '/payments')
 
     console.log("Posting payment:");
     console.log(body)
 
-    return post({ username, password, body, url })
+    return post({ apiToken, body, url })
     .then((result) => {
       console.log("Success:", result);
       return { ...state, references: [ result, ...state.references ] }
