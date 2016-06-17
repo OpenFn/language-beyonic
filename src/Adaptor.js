@@ -90,6 +90,36 @@ export function createContact(data) {
   }
 }
 
+/**
+ * Create a collection request
+ * @example
+ * execute(
+ *   createCollectionRequest(data)
+ * )(state)
+ * @constructor
+ * @param {object} data - Payload data for the collection request
+ * @returns {Operation}
+ */
+export function createCollectionRequest(data) {
+
+  return state => {
+    const body = expandReferences(data)(state);
+
+    const { apiUrl, apiToken } = state.configuration;
+
+    const url = resolveUrl(apiUrl + '/', 'collectionrequests')
+
+    console.log("Posting collection request:");
+    console.log(body)
+
+    return post({ apiToken, body, url })
+    .then((result) => {
+      console.log("Success:", result);
+      return { ...state, references: [ result, ...state.references ] }
+    })
+
+  }
+}
 
 export {
   field, fields, sourceValue,
