@@ -1,88 +1,22 @@
-Language beyonic
-==============
+Language Beyonic
+================
 
 Language Pack for building expressions and operations for working with
-the [beyonic API](http://beyonic.github.io/beyonic-docs/master/en/developer/html/beyonic_developer_manual.html).
+the [beyonic API](http://apidocs.beyonic.com/).
 
 Documentation
 -------------
-## Events API
+## Payments API
 
-#### Desired `Events API` expression:
+#### `createPayment(...)`
 ```js
-events("program", "orgUnit", fields(
-  field(...),
-  field(...),
-  field(...),
-  dataValues(
-    field("dataElement", "value"),
-    field("dataElement", "value"),
-    field("dataElement", "value")
-  )
+createPayment(fields(
+  field("dataSet", "pBOMPrpg1QX"),
+  field("orgUnit", "DiszpKrYNg8"),
+  field("period", "201401"),
+  field("completeData", dataValue("date"))
 ))
 ```
-
-#### Current `Events API` expression—too bulky
-```js
-event(
-  fields(
-    field("program", "eBAyeGv0exc"),
-    field("orgUnit", "DiszpKrYNg8"),
-    field("eventDate", dataValue("date")),
-    field("status", "COMPLETED"),
-    field("storedBy", "admin"),
-    field("coordinate", {
-      "latitude": "59.8",
-      "longitude": "10.9"
-    }),
-    field("dataValues", function(state) {
-      return [
-        dataElement("qrur9Dvnyt5", dataValue("prop_a"))(state)
-        dataElement("oZg33kd9taw", dataValue("prop_b"))(state)
-        dataElement("msodh3rEMJa", dataValue("prop_c"))(state)
-      ]
-    })
-  )
-)
-```
-
-## Data Values / Data Value Sets API
-
-#### Desired `DataValueSets API` expression:
-```js
-dataValueSet("dataSet", "orgUnit", fields(
-  field(...),
-  field(...),
-  field(...),
-  dataValues(
-    field("dataElement", "value"),
-    field("dataElement", "value"),
-    field("dataElement", "value")
-  )
-))
-```
-
-#### Current `DataValueSets API` expression—too bulky
-```js
-dataValueSet(
-  fields(
-    field("dataSet", "pBOMPrpg1QX"),
-    field("orgUnit", "DiszpKrYNg8"),
-    field("period", "201401"),
-    field("completeData", dataValue("date")),
-    field("dataValues", function(state) {
-      return [
-        { "dataElement": "f7n9E0hX8qk", "value": dataValue("prop_a")(state) },
-        { "dataElement": "Ix2HsbDMLea", "value": dataValue("prop_b")(state) },
-        { "dataElement": "eY5ehpbEsB7", "value": dataValue("prop_c")(state) }
-      ]
-    })
-  )
-)
-```
-
-[Docs](docs/index)
-
 
 Development
 -----------
