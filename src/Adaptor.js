@@ -45,8 +45,7 @@ export function createPayment(data) {
 
     const { apiUrl, apiToken } = state.configuration;
 
-    const url = "https://app.beyonic.com/api"
-    // const url = resolveUrl(apiUrl + '/payments')
+    const url = resolveUrl(apiUrl + '/', 'payments')
 
     console.log("Posting payment:");
     console.log(body)
@@ -77,7 +76,7 @@ export function createContact(data) {
 
     const { apiUrl, apiToken } = state.configuration;
 
-    const url = resolveUrl(apiUrl + "/contacts")
+    const url = resolveUrl(apiUrl + '/', 'contacts')
 
     console.log("Posting contact:");
     console.log(body)
