@@ -6,6 +6,16 @@ the [beyonic API](http://apidocs.beyonic.com/).
 
 Documentation
 -------------
+
+## Sample configuration
+
+```json
+{
+  "apiUrl": "https://beyonic.com/api",
+  "apiToken": "cdjhiooiSIUJHDYSYUIHASIOHKAANOAJJjsiujhaka"
+}
+```
+
 ## Payments API
 
 #### `createPayment(...)`
